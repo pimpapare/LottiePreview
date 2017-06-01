@@ -16,15 +16,18 @@ class ViewController: NSViewController {
     @IBOutlet weak var imageResultLoop: NSImageView!
     @IBOutlet weak var textFileShowFile: NSTextField!
     
+    @IBOutlet weak var viewLine: NSView!
+    
     var animation = LOTAnimationView()
     var animationLoop = LOTAnimationView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setInitialObject()
     }
-    
-    func viewDidLayoutSubviews(){
-        setInitialAnimation()
+
+    func setInitialObject(){
+        viewLine.layer?.backgroundColor = NSColor.lightGray.cgColor
     }
     
     @IBAction func btnSelectFilePressed(_ sender: Any) {

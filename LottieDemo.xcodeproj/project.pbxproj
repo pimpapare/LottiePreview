@@ -55,6 +55,7 @@
 		1AA038051EE013B9003A5943 /* LOTShapeTrimPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA037D41EE013B9003A5943 /* LOTShapeTrimPath.m */; };
 		1AA038061EE013B9003A5943 /* LOTAnimationTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA037D61EE013B9003A5943 /* LOTAnimationTransitionController.m */; };
 		1AA038071EE013B9003A5943 /* LOTAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA037D71EE013B9003A5943 /* LOTAnimationView.m */; };
+		1AF2ED4E1EE05EE0006E964F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF2ED4D1EE05EE0006E964F /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,7 @@
 		1AA037DB1EE013B9003A5943 /* LOTAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTAnimationView.h; sourceTree = "<group>"; };
 		1AA037DC1EE013B9003A5943 /* LOTAnimationView_Compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTAnimationView_Compat.h; sourceTree = "<group>"; };
 		1AA037DD1EE013B9003A5943 /* Lottie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lottie.h; sourceTree = "<group>"; };
+		1AF2ED4D1EE05EE0006E964F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 				1AA037511EE0138C003A5943 /* Main.storyboard */,
 				1AA037541EE0138C003A5943 /* Info.plist */,
 				1AA037761EE0139A003A5943 /* LottieDemo-Bridging-Header.h */,
+				1AF2ED4D1EE05EE0006E964F /* icon.png */,
 				1AA0377A1EE013B9003A5943 /* Lottie */,
 			);
 			path = LottieDemo;
@@ -545,6 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AA037DE1EE013B9003A5943 /* .gitkeep in Resources */,
+				1AF2ED4E1EE05EE0006E964F /* icon.png in Resources */,
 				1AA037501EE0138C003A5943 /* Assets.xcassets in Resources */,
 				1AA037531EE0138C003A5943 /* Main.storyboard in Resources */,
 				1AA037DF1EE013B9003A5943 /* .gitkeep in Resources */,
