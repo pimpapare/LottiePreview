@@ -15,17 +15,23 @@ class ViewController: NSViewController {
     @IBOutlet weak var imageResult: NSImageView!
     @IBOutlet weak var imageResultLoop: NSImageView!
     @IBOutlet weak var textFileShowFile: NSTextField!
+    @IBOutlet weak var loader: NSProgressIndicator!
     
     @IBOutlet weak var viewLine: NSView!
     
     var animation = LOTAnimationView()
     var animationLoop = LOTAnimationView()
+    var result:URL?
+    
+    var sec:Int = 1
+    var isPlayAgain:Bool = false
+    var loopEnable:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setInitialObject()
     }
-
+    
     func setInitialObject(){
         viewLine.layer?.backgroundColor = NSColor.lightGray.cgColor
     }
@@ -44,14 +50,43 @@ class ViewController: NSViewController {
         
         if dialog.runModal() == NSModalResponseOK{
             
-            let result = dialog.url
+            resetValueCondition()
             
-            if result != nil, let path = result?.path {
-                textFileShowFile.stringValue = path
-                setAnimationURL(path: path)
+            result = dialog.url
+            loader.isHidden = false
+            loader.startAnimation(self)
+            
+            if result != nil {
+                playAnimation()
             }else{
                 return
             }
+        }
+    }
+    
+    func resetValueCondition() {
+        
+        isPlayAgain = false
+        loopEnable = true
+        
+        imageResult.isHidden = true
+        imageResultLoop.isHidden = true
+    }
+    
+    func playAnimation() {
+        
+        if isPlayAgain == false {
+            textFileShowFile.stringValue = result!.path
+            setAnimationURL(path: result!.path)
+        }else{
+            loader.isHidden = true
+            imageResult.isHidden = false
+            imageResultLoop.isHidden = false
+        }
+        
+        if loopEnable == true {
+            sec = sec + 1
+            self.perform(#selector(playAnimation), with: nil, afterDelay: TimeInterval(sec))
         }
     }
     
@@ -83,6 +118,8 @@ class ViewController: NSViewController {
         animation.contentMode = .scaleAspectFit
         image.addSubview(animation)
         animation.play(completion: { finished in
+            self.isPlayAgain = true
+            self.loopEnable = false
         })
     }
     
@@ -93,6 +130,8 @@ class ViewController: NSViewController {
         image.addSubview(animationLoop)
         
         animationLoop.play(completion: { finished in
+            self.isPlayAgain = true
+            self.loopEnable = false
             self.showAnimationLoop(image: self.imageResultLoop)
         })
     }

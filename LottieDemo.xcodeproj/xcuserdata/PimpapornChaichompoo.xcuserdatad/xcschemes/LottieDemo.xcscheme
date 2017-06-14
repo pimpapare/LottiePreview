@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1AA037471EE0138C003A5943"
-               BuildableName = "LottieDemo.app"
+               BuildableName = "Lottie Preview.app"
                BlueprintName = "LottieDemo"
                ReferencedContainer = "container:LottieDemo.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1AA037471EE0138C003A5943"
-            BuildableName = "LottieDemo.app"
+            BuildableName = "Lottie Preview.app"
             BlueprintName = "LottieDemo"
             ReferencedContainer = "container:LottieDemo.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1AA037471EE0138C003A5943"
-            BuildableName = "LottieDemo.app"
+            BuildableName = "Lottie Preview.app"
             BlueprintName = "LottieDemo"
             ReferencedContainer = "container:LottieDemo.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1AA037471EE0138C003A5943"
-            BuildableName = "LottieDemo.app"
+            BuildableName = "Lottie Preview.app"
             BlueprintName = "LottieDemo"
             ReferencedContainer = "container:LottieDemo.xcodeproj">
          </BuildableReference>

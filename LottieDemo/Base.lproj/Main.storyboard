@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -686,18 +686,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cTd-TT-vZA">
-                                <rect key="frame" x="20" y="0.0" width="220" height="183"/>
-                                <gestureRecognizers>
-                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="tXc-Qx-fES">
-                                        <connections>
-                                            <action selector="tapOnImageResult:" target="XfG-lQ-9wD" id="39O-dq-YYO"/>
-                                        </connections>
-                                    </clickGestureRecognizer>
-                                </gestureRecognizers>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="sKa-iZ-mUX"/>
-                            </imageView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8gU-e3-FxE">
+                            <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8gU-e3-FxE">
                                 <rect key="frame" x="240" y="0.0" width="220" height="183"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="gID-pf-mZp"/>
                             </imageView>
@@ -721,13 +710,13 @@
                                     <constraint firstAttribute="height" constant="22" id="X0d-rX-eRg"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="File" drawsBackground="YES" id="xfx-ST-8z1">
-                                    <font key="font" metaFont="system" size="11"/>
+                                    <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79J-da-G9R">
-                                <rect key="frame" x="250" y="186" width="35" height="17"/>
+                                <rect key="frame" x="251" y="186" width="35" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Loop" id="DnK-Yp-3RQ">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -735,7 +724,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9b-RU-m7h">
-                                <rect key="frame" x="168" y="186" width="63" height="17"/>
+                                <rect key="frame" x="166" y="186" width="63" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Play once" id="yEx-vi-3zK">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -743,38 +732,55 @@
                                 </textFieldCell>
                             </textField>
                             <customView focusRingType="exterior" translatesAutoresizingMaskIntoConstraints="NO" id="FK7-I2-KpZ">
-                                <rect key="frame" x="239" y="0.0" width="3" height="203"/>
+                                <rect key="frame" x="239" y="0.0" width="3" height="180"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="3" id="uXL-9R-PVi"/>
+                                    <constraint firstAttribute="width" constant="3" id="BNt-H9-AhI"/>
                                 </constraints>
                             </customView>
+                            <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="pex-Fk-7c1">
+                                <rect key="frame" x="232" y="187" width="16" height="16"/>
+                            </progressIndicator>
+                            <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cTd-TT-vZA">
+                                <rect key="frame" x="20" y="0.0" width="220" height="183"/>
+                                <gestureRecognizers>
+                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="tXc-Qx-fES">
+                                        <connections>
+                                            <action selector="tapOnImageResult:" target="XfG-lQ-9wD" id="39O-dq-YYO"/>
+                                        </connections>
+                                    </clickGestureRecognizer>
+                                </gestureRecognizers>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="sKa-iZ-mUX"/>
+                            </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="79J-da-G9R" firstAttribute="leading" secondItem="pex-Fk-7c1" secondAttribute="trailing" constant="5" id="1UR-39-iAD"/>
                             <constraint firstItem="jz4-gY-8fS" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="25" id="39R-cX-RoW"/>
                             <constraint firstItem="RkH-Or-cOu" firstAttribute="leading" secondItem="jz4-gY-8fS" secondAttribute="trailing" constant="10" id="3Uo-dj-JA6"/>
+                            <constraint firstItem="pex-Fk-7c1" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="95A-j4-avx"/>
                             <constraint firstAttribute="trailing" secondItem="RkH-Or-cOu" secondAttribute="trailing" constant="20" id="E1H-wL-FUE"/>
-                            <constraint firstItem="FK7-I2-KpZ" firstAttribute="top" secondItem="jz4-gY-8fS" secondAttribute="bottom" constant="20" id="E8A-Sq-5ZF"/>
+                            <constraint firstItem="pex-Fk-7c1" firstAttribute="leading" secondItem="x9b-RU-m7h" secondAttribute="trailing" constant="5" id="IoX-Pe-G06"/>
                             <constraint firstAttribute="bottom" secondItem="cTd-TT-vZA" secondAttribute="bottom" id="Mik-2x-6tF"/>
                             <constraint firstItem="cTd-TT-vZA" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="NAy-11-Oqj"/>
                             <constraint firstItem="79J-da-G9R" firstAttribute="top" secondItem="jz4-gY-8fS" secondAttribute="bottom" constant="20" id="S6C-Mq-ISa"/>
                             <constraint firstAttribute="bottom" secondItem="8gU-e3-FxE" secondAttribute="bottom" id="SrM-5y-uhe"/>
-                            <constraint firstItem="79J-da-G9R" firstAttribute="leading" secondItem="FK7-I2-KpZ" secondAttribute="trailing" constant="10" id="V8g-1d-jgG"/>
                             <constraint firstItem="jz4-gY-8fS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="XIt-WT-NIS"/>
                             <constraint firstAttribute="trailing" secondItem="8gU-e3-FxE" secondAttribute="trailing" constant="20" id="bOk-me-qsT"/>
                             <constraint firstItem="8gU-e3-FxE" firstAttribute="leading" secondItem="cTd-TT-vZA" secondAttribute="trailing" id="epq-rP-ZMW"/>
-                            <constraint firstItem="FK7-I2-KpZ" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="g8V-Dt-NMq"/>
                             <constraint firstItem="8gU-e3-FxE" firstAttribute="top" secondItem="jz4-gY-8fS" secondAttribute="bottom" constant="40" id="gEE-29-f4g"/>
                             <constraint firstItem="cTd-TT-vZA" firstAttribute="top" secondItem="jz4-gY-8fS" secondAttribute="bottom" constant="40" id="iJu-NB-nDr"/>
+                            <constraint firstItem="FK7-I2-KpZ" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="jdD-TB-kMM"/>
                             <constraint firstItem="x9b-RU-m7h" firstAttribute="top" secondItem="jz4-gY-8fS" secondAttribute="bottom" constant="20" id="n4K-4I-fJL"/>
-                            <constraint firstItem="FK7-I2-KpZ" firstAttribute="leading" secondItem="x9b-RU-m7h" secondAttribute="trailing" constant="10" id="vnn-3d-CnX"/>
+                            <constraint firstItem="pex-Fk-7c1" firstAttribute="top" secondItem="jz4-gY-8fS" secondAttribute="bottom" constant="20" id="pZI-sS-Y4d"/>
+                            <constraint firstAttribute="bottom" secondItem="FK7-I2-KpZ" secondAttribute="bottom" id="smm-cR-WEB"/>
                             <constraint firstItem="8gU-e3-FxE" firstAttribute="width" secondItem="cTd-TT-vZA" secondAttribute="width" id="xrC-cg-aFw"/>
+                            <constraint firstItem="FK7-I2-KpZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="90" id="yIs-WE-tbY"/>
                             <constraint firstItem="RkH-Or-cOu" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="25" id="yg2-aS-qLY"/>
-                            <constraint firstItem="FK7-I2-KpZ" firstAttribute="bottom" secondItem="cTd-TT-vZA" secondAttribute="bottom" id="yp2-VC-Uq8"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageResult" destination="cTd-TT-vZA" id="EXf-rs-LKe"/>
                         <outlet property="imageResultLoop" destination="8gU-e3-FxE" id="xSN-lN-o6q"/>
+                        <outlet property="loader" destination="pex-Fk-7c1" id="dPd-wB-Otk"/>
                         <outlet property="textFileShowFile" destination="jz4-gY-8fS" id="YtM-yx-wGU"/>
                         <outlet property="viewLine" destination="FK7-I2-KpZ" id="Ve3-jU-mMA"/>
                     </connections>
