@@ -14,26 +14,38 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var imageResult: NSImageView!
     @IBOutlet weak var imageResultLoop: NSImageView!
+    @IBOutlet weak var imageResultLoopWithDelay: NSImageView!
+    
     @IBOutlet weak var textFileShowFile: NSTextField!
     @IBOutlet weak var loader: NSProgressIndicator!
     
-    @IBOutlet weak var viewLine: NSView!
+    @IBOutlet weak var viewLineHorizontal: NSView!
+    @IBOutlet weak var viewLineVertical: NSView!
+    
+    @IBOutlet weak var textNumberDelay: NSTextField!
+    @IBOutlet weak var stepper: NSStepper!
     
     var animation = LOTAnimationView()
     var animationLoop = LOTAnimationView()
+    var animationLoopWithDelay = LOTAnimationView()
+    
     var result:URL?
     
     var sec:Int = 1
     var isPlayAgain:Bool = false
     var loopEnable:Bool = true
     
+    var numberDelay:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setInitialObject()
+        setInitialUI()
     }
     
-    func setInitialObject(){
-        viewLine.layer?.backgroundColor = NSColor.lightGray.cgColor
+    func setInitialUI(){
+        
+        viewLineHorizontal.layer?.backgroundColor = NSColor.lightGray.cgColor
+        viewLineVertical.layer?.backgroundColor = NSColor.lightGray.cgColor
     }
     
     @IBAction func btnSelectFilePressed(_ sender: Any) {
@@ -71,6 +83,7 @@ class ViewController: NSViewController {
         
         imageResult.isHidden = true
         imageResultLoop.isHidden = true
+        imageResultLoopWithDelay.isHidden = true
     }
     
     func playAnimation() {
@@ -82,6 +95,7 @@ class ViewController: NSViewController {
             loader.isHidden = true
             imageResult.isHidden = false
             imageResultLoop.isHidden = false
+            imageResultLoopWithDelay.isHidden = false
         }
         
         if loopEnable == true {
@@ -93,15 +107,18 @@ class ViewController: NSViewController {
     func setInitialAnimation(){
         self.showAnimation(image: self.imageResult)
         self.showAnimationLoop(image: self.imageResultLoop)
+        self.showAnimationLoopWithDelay()
     }
     
     func setAnimationURL(path:String){
         
         animation.removeFromSuperview()
         animationLoop.removeFromSuperview()
+        animationLoopWithDelay.removeFromSuperview()
         
         animation = LOTAnimationView(contentsOf:URL(fileURLWithPath:path))
         animationLoop = LOTAnimationView(contentsOf:URL(fileURLWithPath:path))
+        animationLoopWithDelay = LOTAnimationView(contentsOf:URL(fileURLWithPath:path))
         
         setInitialAnimation()
     }
@@ -110,6 +127,13 @@ class ViewController: NSViewController {
         
         animation.removeFromSuperview()
         self.showAnimation(image: self.imageResult)
+    }
+    
+    @IBAction func stepperPressed(_ sender: NSStepper) {
+        
+        print("== ",textNumberDelay.doubleValue)
+        self.showAnimationLoopWithDelay()
+
     }
     
     func showAnimation(image:NSImageView){
@@ -133,6 +157,19 @@ class ViewController: NSViewController {
             self.isPlayAgain = true
             self.loopEnable = false
             self.showAnimationLoop(image: self.imageResultLoop)
+        })
+    }
+    
+    func showAnimationLoopWithDelay(){
+        
+        animationLoopWithDelay.contentMode = .scaleAspectFit
+        animationLoopWithDelay.frame = CGRect(x: 0, y: 0, width: imageResultLoopWithDelay.frame.size.width, height: imageResultLoopWithDelay.frame.size.height)
+        imageResultLoopWithDelay.addSubview(animationLoopWithDelay)
+        
+        animationLoopWithDelay.play(completion: { finished in
+            self.isPlayAgain = true
+            self.loopEnable = false
+            self.perform(#selector(self.showAnimationLoopWithDelay), with: nil, afterDelay: self.textNumberDelay.doubleValue)
         })
     }
 }
